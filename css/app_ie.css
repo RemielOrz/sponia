@@ -1,7 +1,7 @@
 /*!
  * Created By remiel.
- * Date: 14/11/27
- * Time: 下午12:56
+ * Date: 14/11/28
+ * Time: 下午10:10
  */
 html {
   font-size: 16px;
@@ -11,6 +11,11 @@ html {
     font-size: 32px;
   }
 }
+/*!
+ * Created By remiel.
+ * Date: 14/11/27
+ * Time: 下午12:56
+ */
 html {
   line-height: 1;
   font-family: Helvetica,DroidSans;
@@ -46,7 +51,7 @@ body {
   -webkit-text-size-adjust: none;
   -webkit-user-select: none;
   color: #262626;
-  font-size: 0.375rem;
+  font-size: 12px;
   line-height: 1.5;
 }
 li {
@@ -146,12 +151,12 @@ input {
   z-index: 9999;
   top: 50%;
   left: 50%;
-  margin: -0.75rem 0 0 -3rem;
+  margin: -24px 0 0 -96px;
   background: #45c8f4;
-  line-height: 1.5rem;
-  height: 1.5rem;
-  width: 6rem;
-  font-size: 0.75rem;
+  line-height: 48px;
+  height: 48px;
+  width: 192px;
+  font-size: 24px;
   color: #fff;
   text-align: center;
   -webkit-transition: opacity 0.5s ease;
@@ -206,16 +211,16 @@ html {
 }
 .swipe-dot-box {
   position: absolute;
-  right: 0.625rem;
-  bottom: 0.625rem;
+  right: 20px;
+  bottom: 20px;
 }
 .swipe-dot-box i {
-  width: 0.25rem;
-  height: 0.25rem;
+  width: 8px;
+  height: 8px;
   background: #fff;
   opacity: .3;
   display: inline-block;
-  margin-left: 0.15625rem;
+  margin-left: 5px;
 }
 .swipe-dot-box i._active {
   opacity: 1;
@@ -223,8 +228,8 @@ html {
 /*wrapper*/
 .inner {
   position: relative;
-  width: 29.375rem;
-  padding: 0 0.3125rem;
+  width: 940px;
+  padding: 0 10px;
   margin: auto;
 }
 /*header*/
@@ -232,30 +237,30 @@ html {
 .header .inner {
   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
-  height: 1.875rem;
+  height: 60px;
   background: #bd1a21;
 }
 .logo {
-  width: 5.3125rem;
-  height: 1.375rem;
+  width: 170px;
+  height: 44px;
   background: url("../images/icon/logo@2x.png??v=2014112701") no-repeat;
   background-size: auto 100%;
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 0.125rem;
+  left: 4px;
   margin: auto;
 }
 .nav {
-  line-height: 1.875rem;
-  font-size: 0.625rem;
+  line-height: 60px;
+  font-size: 20px;
   position: absolute;
-  left: 6.375rem;
+  left: 204px;
 }
 .nav__item {
   float: left;
   color: #efc7c7;
-  padding: 0 0.78125rem;
+  padding: 0 25px;
 }
 .nav ._active,
 .nav__item:hover {
@@ -264,14 +269,14 @@ html {
 }
 .search {
   position: absolute;
-  top: 0.4375rem;
-  right: 0.3125rem;
+  top: 14px;
+  right: 10px;
   background: #fff;
   -webkit-box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.4);
   box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.4);
   border-radius: 2px;
   overflow: hidden;
-  width: 5rem;
+  width: 160px;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
@@ -283,36 +288,36 @@ html {
 }
 .search,
 .search__ipt {
-  height: 1rem;
+  height: 32px;
 }
 .search__ipt {
   position: absolute;
   top: 0;
-  left: 1.1875rem;
-  width: 3.75rem;
+  left: 38px;
+  width: 120px;
 }
 .search._active {
-  width: 6.25rem;
+  width: 200px;
 }
 .icon:before {
   content: '';
   display: block;
-  width: 1.125rem;
-  height: 1rem;
+  width: 36px;
+  height: 32px;
   -webkit-box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.4);
   box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.4);
   border-radius: 2px;
 }
 .icon-nav {
   display: none;
-  padding: 0.4375rem 0.5625rem;
+  padding: 14px 18px;
   position: absolute;
   left: 0;
   top: 0;
 }
 .icon-nav:before {
-  background: #ffffff url("../images/icon/icon_menu@2x.png?v=2014112701") no-repeat 0.25rem 0.25rem;
-  background-size: 0.6875rem auto;
+  background: #ffffff url("../images/icon/icon_menu@2x.png?v=2014112701") no-repeat 8px 8px;
+  background-size: 22px auto;
 }
 .icon-search {
   position: absolute;
@@ -320,20 +325,20 @@ html {
   top: 0;
 }
 .icon-search:before {
-  background: #ffffff url("../images/icon/icon_search@2x.png?v=2014112701") no-repeat 0.25rem 0.1875rem;
-  background-size: 0.625rem auto;
+  background: #ffffff url("../images/icon/icon_search@2x.png?v=2014112701") no-repeat 8px 6px;
+  background-size: 20px auto;
 }
 /*.body*/
 .body {
-  margin-bottom: 0.5rem;
+  margin-bottom: 16px;
 }
 .body .inner {
-  width: 19.6875rem;
-  padding-right: 10rem;
-  margin-top: 0.75rem;
+  width: 630px;
+  padding-right: 320px;
+  margin-top: 24px;
 }
 .banner {
-  padding: 0.15625rem;
+  padding: 5px;
   background: #fff;
 }
 .banner .swipe-item img {
@@ -343,12 +348,12 @@ html {
   display: block;
 }
 .banner .u-placeholder {
-  background-size: 5.3125rem auto;
+  background-size: 170px auto;
 }
 .mod-header-01 {
-  margin-top: 1.25rem;
-  font-size: 0.75rem;
-  line-height: 1.125rem;
+  margin-top: 40px;
+  font-size: 24px;
+  line-height: 36px;
   border-bottom: 1px solid #bd1a21;
   color: #bd1a21;
   position: relative;
@@ -356,47 +361,47 @@ html {
 .mod-header-01 .more {
   position: absolute;
   right: 0;
-  bottom: 0.375rem;
-  line-height: 1.15625rem;
+  bottom: 12px;
+  line-height: 37px;
 }
 .mod-header-01 .more,
 .mod-header-01 .more:before {
-  width: 2.84375rem;
-  height: 1.15625rem;
+  width: 91px;
+  height: 37px;
 }
 .mod-header-01 .more:before {
   content: '';
   display: block;
-  background: url("../images/icon/icon_more@2x.png?v=2014112701") no-repeat 1.5625rem 0.6875rem;
-  background-size: 1.0625rem 0.34375rem;
+  background: url("../images/icon/icon_more@2x.png?v=2014112701") no-repeat 50px 22px;
+  background-size: 34px 11px;
 }
 .mod-list-01 .__item {
   position: relative;
   overflow: hidden;
-  padding: 0.5rem 0 0.4375rem 0.125rem;
-  margin: 0 0.78125rem 0 0.375rem;
+  padding: 16px 0 14px 4px;
+  margin: 0 25px 0 12px;
   border-bottom: 1px solid #3c3c3c;
 }
 .mod-list-01 .__img-box {
   position: absolute;
-  top: 0.5rem;
-  left: 0.125rem;
+  top: 16px;
+  left: 4px;
 }
 .mod-list-01 .__img-box,
 .mod-list-01 .__img-box img {
-  width: 1.375rem;
-  height: 1.375rem;
+  width: 44px;
+  height: 44px;
 }
 .mod-list-01 .__main {
-  padding-left: 1.875rem;
-  height: 1.375rem;
+  padding-left: 60px;
+  height: 44px;
   overflow: hidden;
 }
 .mod-list-01 .__hd {
-  font-size: 0.375rem;
+  font-size: 12px;
   font-weight: bold;
   color: #747474;
-  margin-bottom: 0.25rem;
+  margin-bottom: 8px;
 }
 .mod-list-01 .__title {
   float: left;
@@ -406,10 +411,10 @@ html {
   float: right;
   max-width: 50%;
   color: #525151;
-  margin-right: 0.25rem;
+  margin-right: 8px;
 }
 .mod-list-01 .__bd {
-  font-size: 0.4375rem;
+  font-size: 14px;
   color: #a9a9a9;
 }
 .mod-list-01 .__title,
@@ -424,7 +429,7 @@ html {
 }
 .fans-post,
 .fans-post .swipe-item {
-  height: 4.6875rem;
+  height: 150px;
 }
 .fans-post .swipe-item {
   display: none;
@@ -433,39 +438,39 @@ html {
   display: block;
 }
 .mod-list-02 .__item {
-  border-radius: 0.09375rem;
+  border-radius: 3px;
   position: relative;
   overflow: hidden;
-  padding: 0.3125rem 0.34375rem;
-  margin-bottom: 0.53125rem;
+  padding: 10px 11px;
+  margin-bottom: 17px;
   background: #323232;
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 .mod-list-02 .__item:first-child {
-  margin-top: 0.375rem;
+  margin-top: 12px;
 }
 .mod-list-02 .__item:hover {
   background: #464646;
 }
 .mod-list-02 .__img-box {
   position: absolute;
-  top: 0.3125rem;
-  left: 0.34375rem;
+  top: 10px;
+  left: 11px;
 }
 .mod-list-02 .__img-box,
 .mod-list-02 .__img-box img {
-  width: 4.375rem;
-  height: 3.125rem;
+  width: 140px;
+  height: 100px;
 }
 .mod-list-02 .__main {
-  padding-left: 4.875rem;
-  height: 3.125rem;
+  padding-left: 156px;
+  height: 100px;
   overflow: hidden;
 }
 .mod-list-02 .__hd {
-  font-size: 0.4375rem;
-  line-height: 0.8125rem;
+  font-size: 14px;
+  line-height: 26px;
   font-weight: bold;
   color: #c7c7c7;
   overflow: hidden;
@@ -473,29 +478,29 @@ html {
   text-overflow: ellipsis;
 }
 .mod-list-02 .__bd {
-  font-size: 0.375rem;
-  line-height: 0.75rem;
-  max-height: 2.25rem;
+  font-size: 12px;
+  line-height: 24px;
+  max-height: 72px;
   color: #727171;
   overflow: hidden;
 }
 .mod-list-03 .__item {
-  height: 2.5rem;
+  height: 80px;
   background: #dbdbdb;
   color: #3b3b3b;
-  border-radius: 0.125rem;
+  border-radius: 4px;
   overflow: hidden;
-  margin-bottom: 0.28125rem;
+  margin-bottom: 9px;
 }
 .mod-list-03 table {
   width: 100%;
   table-layout: fixed;
   font-weight: bold;
-  font-size: 0.375rem;
+  font-size: 12px;
   text-align: center;
 }
 .mod-list-03 table tr:first-child td {
-  height: 1.75rem;
+  height: 56px;
   vertical-align: middle;
 }
 .mod-list-03 table td {
@@ -509,47 +514,47 @@ html {
 }
 .mod-list-03 .__time {
   display: inline-block;
-  margin-top: 0.375rem;
+  margin-top: 12px;
   background: #353535;
   background-image: -webkit-linear-gradient(180deg, #414141,#363636);
   background-image: linear-gradient(180deg, #414141,#363636);
   -webkit-box-shadow: 0 0 2px rgba(255, 255, 255, 0.4) inset;
   box-shadow: 0 0 2px rgba(255, 255, 255, 0.4) inset;
-  border-radius: 0.0625rem;
-  width: 1.75rem;
-  line-height: 0.625rem;
+  border-radius: 2px;
+  width: 56px;
+  line-height: 20px;
   color: #8bd210;
-  font-size: 0.4375rem;
+  font-size: 14px;
 }
 .mod-list-03 .__date {
   color: #262626;
   font-weight: normal;
-  font-size: 0.375rem;
+  font-size: 12px;
 }
 .recent-match {
   overflow: hidden;
   /**/
   position: absolute;
-  left: 20.875rem;
-  right: 0.3125rem;
-  top: -0.125rem;
+  left: 668px;
+  right: 10px;
+  top: -4px;
   /**/
 }
 .recent-match .mod-header-01 {
-  margin-bottom: 0.375rem;
+  margin-bottom: 12px;
   margin-top: 0;
 }
 /*menu-team*/
 .menu-team {
   position: relative;
-  padding: 0.21875rem;
-  height: 1rem;
-  margin-bottom: 0.375rem;
+  padding: 7px;
+  height: 32px;
+  margin-bottom: 12px;
 }
 .menu-team .__btn {
-  border-radius: 0.0625rem;
-  line-height: 1rem;
-  font-size: 0.4375rem;
+  border-radius: 2px;
+  line-height: 32px;
+  font-size: 14px;
   color: #fff;
   background: #1585c6;
   background-image: -webkit-linear-gradient(180deg, rgba(255,255,255,0),rgba(0,0,0,.1));
@@ -568,20 +573,20 @@ html {
 .menu-team__box {
   display: none;
   position: absolute;
-  top: 1.4375rem;
+  top: 46px;
   left: 0;
   right: 0;
   background: #f2f2f2;
-  padding: 0 0.25rem 0.1875rem;
+  padding: 0 8px 6px;
 }
 .menu-team__list-item {
   position: relative;
-  margin-bottom: 0.0625rem;
-  padding-left: 0.46875rem;
-  line-height: 1.1875rem;
+  margin-bottom: 2px;
+  padding-left: 15px;
+  line-height: 38px;
   background: #dfdfdf;
   color: #6c6c6c;
-  font-size: 0.4375rem;
+  font-size: 14px;
 }
 .menu-team__list-item._active,
 .menu-team__list-item:hover {
@@ -597,17 +602,17 @@ html {
   z-index: 1;
   right: 0;
   top: 0;
-  padding: 0.0625rem 0.125rem 0.375rem;
-  width: 4.0625rem;
+  padding: 2px 4px 12px;
+  width: 130px;
   background: #fff;
   display: none;
 }
 .menu-team__sub-list-item {
-  margin-bottom: 0.0625rem;
-  line-height: 1.1875rem;
+  margin-bottom: 2px;
+  line-height: 38px;
   background: #f5f5f5;
   color: #000;
-  font-size: 0.4375rem;
+  font-size: 14px;
   text-align: center;
 }
 .menu-team__sub-list-item._active,
@@ -618,31 +623,34 @@ html {
 .footer,
 .footer .inner {
   background: #000;
-  height: 3.25rem;
+  height: 104px;
 }
 .footer__content {
-  padding-top: 0.8125rem;
+  padding-top: 26px;
   text-align: center;
-  font: 14/16rem/0.5 Arial;
+  font: 14/1px Arial;
   color: #6c6c6c;
 }
 /*mobi*/
 @media screen and (max-width: 640px) {
+  .inner {
+    width: auto;
+  }
   .logo {
-    width: 3.9375rem;
+    width: 126px;
     left: 0;
     right: 0;
-    background-position: -1.375rem 0;
+    background-position: -44px 0;
   }
   .icon-nav {
     display: block;
   }
   .nav {
     background: #bd1a21;
-    line-height: 2.75rem;
-    font-size: 0.75rem;
+    line-height: 88px;
+    font-size: 24px;
     left: 0;
-    top: 1.875rem;
+    top: 60px;
     z-index: 1;
     zoom: 1;
     display: none;
@@ -656,7 +664,7 @@ html {
     clear: both;
   }
   .nav__item {
-    padding: 0 1.5625rem;
+    padding: 0 50px;
     display: block;
     float: none;
   }
@@ -664,27 +672,27 @@ html {
     display: block;
   }
   .search {
-    right: 0.5rem;
-    width: 1.125rem;
+    right: 16px;
+    width: 36px;
   }
   /*body*/
   .body {
-    margin-bottom: 0.1875rem;
+    margin-bottom: 6px;
   }
   .body .inner {
     width: auto;
-    margin-top: 0.25rem;
-    padding: 0 0.3125rem;
+    margin-top: 8px;
+    padding: 0 10px;
   }
   .banner {
-    margin: 0 -0.1875rem;
+    margin: 0 -6px;
   }
   .mod-header-01 {
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: 32px;
+    line-height: 48px;
   }
   .mod-header-01 .more {
-    font-size: 0.75rem;
+    font-size: 24px;
     color: #fff;
     text-align: center;
   }
@@ -693,76 +701,76 @@ html {
     background: #fe9424;
   }
   .mod-list-01 .__item {
-    padding: 0.5625rem 0 0.5625rem 0.125rem;
-    margin: 0 0.5rem 0 0.375rem;
+    padding: 18px 0 18px 4px;
+    margin: 0 16px 0 12px;
   }
   .mod-list-01 .__img-box {
-    top: 0.5625rem;
+    top: 18px;
   }
   .mod-list-01 .__main {
-    height: 2.3125rem;
+    height: 74px;
   }
   .mod-list-01 .__hd,
   .mod-list-01 .__bd {
-    font-size: 0.75rem;
+    font-size: 24px;
   }
   .mod-list-01 .__hd {
-    margin-bottom: 0.25rem;
+    margin-bottom: 8px;
   }
   .mod-list-01 .__info {
     margin-right: 0;
   }
   .mod-list-01 .bd {
     line-height: 1;
-    margin-bottom: 0.1875rem;
+    margin-bottom: 6px;
   }
   .fans-post,
   .fans-post .swipe-item {
-    height: 7rem;
+    height: 224px;
   }
   .mod-list-02 .__item {
-    margin: 0 -0.15625rem 0.53125rem;
+    margin: 0 -5px 17px;
   }
   .mod-list-02 .__bd,
   .mod-list-02 .__hd {
-    font-size: 0.75rem;
-    line-height: 0.9375rem;
+    font-size: 24px;
+    line-height: 30px;
   }
   .mod-list-02 .__hd {
-    margin-bottom: 0.3125rem;
+    margin-bottom: 10px;
   }
   .mod-list-02 .__bd {
-    max-height: 1.875rem;
+    max-height: 60px;
   }
   .mod-list-03 {
-    max-height: 19.1875rem;
+    max-height: 614px;
     overflow: hidden;
   }
   .mod-list-03 .__item {
-    height: 4.375rem;
-    margin-bottom: 0.5625rem;
+    height: 140px;
+    margin-bottom: 18px;
   }
   .mod-list-03 table {
-    font-size: 0.875rem;
+    font-size: 28px;
   }
   .mod-list-03 table tr:first-child td {
-    height: 3.0625rem;
+    height: 98px;
   }
   .mod-list-03 .__time {
-    width: 4rem;
-    line-height: 1.4375rem;
-    height: 1.4375rem;
-    font-size: 1rem;
+    width: 128px;
+    line-height: 46px;
+    height: 46px;
+    font-size: 32px;
     margin: auto;
   }
   .mod-list-03 .__date {
-    font-size: 0.875rem;
+    font-size: 28px;
     color: #858585;
     position: relative;
-    top: -0.0625rem;
+    top: -2px;
   }
   .recent-match {
-    margin: 0.625rem 0 0.5625rem;
+    margin: 20px 0 18px;
     /**/
     position: relative;
     left: auto;
@@ -771,7 +779,7 @@ html {
     /**/
   }
   .recent-match .mod-header-01 {
-    margin: 0 0 0.5625rem;
+    margin: 0 0 18px;
   }
   .menu-team {
     display: none;
@@ -780,10 +788,10 @@ html {
   .footer,
   .footer .inner {
     background: #000;
-    height: 2.3125rem;
+    height: 74px;
   }
   .footer__content {
     padding-top: 0;
-    line-height: 2.3125rem;
+    line-height: 74px;
   }
 }

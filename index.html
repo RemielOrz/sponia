@@ -7,7 +7,10 @@
     <meta name="format-detection" content="telephone=no" />
     <title>赛点 Sponia</title>
     <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=no"/>
-    <link rel='stylesheet' href='./css/style.css' />
+    <link rel='stylesheet' href='./css/app.css' />
+    <!--[if lt IE 9]>
+    <link rel='stylesheet' href='./css/app_ie.css' />
+    <![endif]-->
 </head>
 <body>
 <div class="wrapper">
@@ -53,326 +56,21 @@
             </div>
             <!--banner swipe end-->
             <!---->
-            <div class="recent-match">
+            <div id="js-recent-match" class="recent-match">
                 <div class="mod-header-01">
                     最新赛程
                     <a class="more" href="#"></a>
                 </div>
-                <div id="js-menu-team" class="menu-team">
-                    <a class="__btn" href="javascript:;">选择球队</a>
-                    <div class="menu-team__box">
-                        <div class="menu-team__list">
-                            <div class="menu-team__list-item _active">
-                                热门球队
-                                <div class="menu-team__sub-list">
-                                    <div class="menu-team__sub-list-item">皇家马德里</div>
-                                    <div class="menu-team__sub-list-item">皇家马德里</div>
-                                    <div class="menu-team__sub-list-item">皇家马德里</div>
-                                    <div class="menu-team__sub-list-item">皇家马德里</div>
-                                </div>
-                            </div>
-                            <div class="menu-team__list-item">
-                                热门球队
-                                <div class="menu-team__sub-list">
-                                    <div class="menu-team__sub-list-item">广州恒大</div>
-                                    <div class="menu-team__sub-list-item">广州恒大</div>
-                                    <div class="menu-team__sub-list-item">广州恒大</div>
-                                    <div class="menu-team__sub-list-item">广州恒大</div>
-                                    <div class="menu-team__sub-list-item">广州恒大</div>
-                                    <div class="menu-team__sub-list-item">广州恒大</div>
-                                </div>
-                            </div>
-                            <div class="menu-team__list-item">
-                                热门球队
-                                <div class="menu-team__sub-list">
-                                    <div class="menu-team__sub-list-item">皇家马德里</div>
-                                    <div class="menu-team__sub-list-item">皇家马德里</div>
-                                    <div class="menu-team__sub-list-item">皇家马德里</div>
-                                    <div class="menu-team__sub-list-item">皇家马德里</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="mod-list-03">
-                    <div class="__item">
-                        <table>
-                            <tr>
-                                <td>
-                                    <img src="./images/pic/pic_04@2x.png" alt=""/>
-                                </td>
-                                <td>
-                                    <div class="__time">19:00</div>
-                                </td>
-                                <td>
-                                    <img src="./images/pic/pic_05@2x.png" alt=""/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>辽宁宏运</td>
-                                <td><span class="__date">2014-11-11</span></td>
-                                <td>广州恒大</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="__item">
-                        <table>
-                            <tr>
-                                <td>
-                                    <img src="./images/pic/pic_04@2x.png" alt=""/>
-                                </td>
-                                <td>
-                                    <div class="__time">19:00</div>
-                                </td>
-                                <td>
-                                    <img src="./images/pic/pic_05@2x.png" alt=""/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>辽宁宏运</td>
-                                <td><span class="__date">2014-11-11</span></td>
-                                <td>广州恒大</td>
-                            </tr>
-                        </table>
-                    </div><div class="__item">
-                    <table>
-                        <tr>
-                            <td>
-                                <img src="./images/pic/pic_04@2x.png" alt=""/>
-                            </td>
-                            <td>
-                                <div class="__time">19:00</div>
-                            </td>
-                            <td>
-                                <img src="./images/pic/pic_05@2x.png" alt=""/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>辽宁宏运</td>
-                            <td><span class="__date">2014-11-11</span></td>
-                            <td>广州恒大</td>
-                        </tr>
-                    </table>
-                </div><div class="__item">
-                    <table>
-                        <tr>
-                            <td>
-                                <img src="./images/pic/pic_04@2x.png" alt=""/>
-                            </td>
-                            <td>
-                                <div class="__time">19:00</div>
-                            </td>
-                            <td>
-                                <img src="./images/pic/pic_05@2x.png" alt=""/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>辽宁宏运</td>
-                            <td><span class="__date">2014-11-11</span></td>
-                            <td>广州恒大</td>
-                        </tr>
-                    </table>
-                </div><div class="__item">
-                    <table>
-                        <tr>
-                            <td>
-                                <img src="./images/pic/pic_04@2x.png" alt=""/>
-                            </td>
-                            <td>
-                                <div class="__time">19:00</div>
-                            </td>
-                            <td>
-                                <img src="./images/pic/pic_05@2x.png" alt=""/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>辽宁宏运</td>
-                            <td><span class="__date">2014-11-11</span></td>
-                            <td>广州恒大</td>
-                        </tr>
-                    </table>
-                </div><div class="__item">
-                    <table>
-                        <tr>
-                            <td>
-                                <img src="./images/pic/pic_04@2x.png" alt=""/>
-                            </td>
-                            <td>
-                                <div class="__time">19:00</div>
-                            </td>
-                            <td>
-                                <img src="./images/pic/pic_05@2x.png" alt=""/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>辽宁宏运</td>
-                            <td><span class="__date">2014-11-11</span></td>
-                            <td>广州恒大</td>
-                        </tr>
-                    </table>
-                </div><div class="__item">
-                    <table>
-                        <tr>
-                            <td>
-                                <img src="./images/pic/pic_04@2x.png" alt=""/>
-                            </td>
-                            <td>
-                                <div class="__time">19:00</div>
-                            </td>
-                            <td>
-                                <img src="./images/pic/pic_05@2x.png" alt=""/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>辽宁宏运</td>
-                            <td><span class="__date">2014-11-11</span></td>
-                            <td>广州恒大</td>
-                        </tr>
-                    </table>
-                </div><div class="__item">
-                    <table>
-                        <tr>
-                            <td>
-                                <img src="./images/pic/pic_04@2x.png" alt=""/>
-                            </td>
-                            <td>
-                                <div class="__time">19:00</div>
-                            </td>
-                            <td>
-                                <img src="./images/pic/pic_05@2x.png" alt=""/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>辽宁宏运</td>
-                            <td><span class="__date">2014-11-11</span></td>
-                            <td>广州恒大</td>
-                        </tr>
-                    </table>
-                </div><div class="__item">
-                    <table>
-                        <tr>
-                            <td>
-                                <img src="./images/pic/pic_04@2x.png" alt=""/>
-                            </td>
-                            <td>
-                                <div class="__time">19:00</div>
-                            </td>
-                            <td>
-                                <img src="./images/pic/pic_05@2x.png" alt=""/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>辽宁宏运</td>
-                            <td><span class="__date">2014-11-11</span></td>
-                            <td>广州恒大</td>
-                        </tr>
-                    </table>
-                </div><div class="__item">
-                    <table>
-                        <tr>
-                            <td>
-                                <img src="./images/pic/pic_04@2x.png" alt=""/>
-                            </td>
-                            <td>
-                                <div class="__time">19:00</div>
-                            </td>
-                            <td>
-                                <img src="./images/pic/pic_05@2x.png" alt=""/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>辽宁宏运</td>
-                            <td><span class="__date">2014-11-11</span></td>
-                            <td>广州恒大</td>
-                        </tr>
-                    </table>
-                </div>
+
                 </div>
             </div>
             <!---->
-            <div class="mod-header-01">最新赛程</div>
+            <div class="mod-header-01">球迷互动</div>
             <div class="swipe-outer mod-list-01 fans-post">
                 <div id="js-swipe-fans-post" class="swipe">
-                    <div class="swipe-wrap">
-                        <div class="swipe-item">
-                            <div class="__item">
-                                <div class="__img-box u-placeholder">
-                                    <img lazyload="./images/pic/avatar.jpg" alt="avatar"/>
-                                </div>
-                                <div class="__main">
-                                    <div class="__hd u-cf">
-                                        <div class="__title">球迷拽拽哥</div>
-                                        <div class="__info">皇家马德里 vs 塞维利亚</div>
-                                    </div>
-                                    <div class="__bd">塞维利亚是c罗请来的演员么？</div>
-                                </div>
-                            </div>
-                            <div class="__item">
-                                <div class="__img-box u-placeholder">
-                                    <img lazyload="./images/pic/avatar.jpg" alt="avatar"/>
-                                </div>
-                                <div class="__main">
-                                    <div class="__hd u-cf">
-                                        <div class="__title">球迷拽拽哥</div>
-                                        <div class="__info">皇家马德里 vs 塞维利亚</div>
-                                    </div>
-                                    <div class="__bd">塞维利亚是c罗请来的演员么？</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swipe-item">
-                            <div class="__item">
-                                <div class="__img-box u-placeholder">
-                                    <img lazyload="./images/pic/avatar.jpg" alt="avatar"/>
-                                </div>
-                                <div class="__main">
-                                    <div class="__hd u-cf">
-                                        <div class="__title">球迷拽拽哥</div>
-                                        <div class="__info">皇家马德里 vs 塞维利亚</div>
-                                    </div>
-                                    <div class="__bd">塞维利亚是c罗请来的演员么？</div>
-                                </div>
-                            </div>
-                            <div class="__item">
-                                <div class="__img-box u-placeholder">
-                                    <img lazyload="./images/pic/avatar.jpg" alt="avatar"/>
-                                </div>
-                                <div class="__main">
-                                    <div class="__hd u-cf">
-                                        <div class="__title">球迷拽拽哥</div>
-                                        <div class="__info">皇家马德里 vs 塞维利亚</div>
-                                    </div>
-                                    <div class="__bd">塞维利亚是c罗请来的演员么？</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swipe-item">
-                            <div class="__item">
-                                <div class="__img-box u-placeholder">
-                                    <img lazyload="./images/pic/avatar.jpg" alt="avatar"/>
-                                </div>
-                                <div class="__main">
-                                    <div class="__hd u-cf">
-                                        <div class="__title">球迷拽拽哥</div>
-                                        <div class="__info">皇家马德里 vs 塞维利亚</div>
-                                    </div>
-                                    <div class="__bd">塞维利亚是c罗请来的演员么？</div>
-                                </div>
-                            </div>
-                            <div class="__item">
-                                <div class="__img-box u-placeholder">
-                                    <img lazyload="./images/pic/avatar.jpg" alt="avatar"/>
-                                </div>
-                                <div class="__main">
-                                    <div class="__hd u-cf">
-                                        <div class="__title">球迷拽拽哥</div>
-                                        <div class="__info">皇家马德里 vs 塞维利亚</div>
-                                    </div>
-                                    <div class="__bd">塞维利亚是c罗请来的演员么？</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
             <!---->
@@ -380,44 +78,8 @@
                 球坛动态
                 <a class="more" href="#"></a>
             </div>
-            <div class="mod-list-02">
-                <div class="__item">
-                    <div class="__img-box u-placeholder">
-                        <img lazyload="./images/pic/pic_03.jpg" alt=""/>
-                    </div>
-                    <div class="__main">
-                        <div class="__hd">中国足球队痛失好局客场1:1</div>
-                        <div class="__bd">中国足球队１５日晚在客场对印度尼西亚队的２０１５年亚洲杯预选赛中痛失好局，在率先取得进球和控制了场面的情况下被对手的一次反击将比分扳为１:１平，出线前景不容乐观。中国队在战平印尼后积４分暂居Ｃ组第二名，而同组少赛一场的沙特阿拉伯队和伊拉克队分别以６分和３分位居第一名和第三名，印尼队则以１分垫底。</div>
-                    </div>
-                </div>
+            <div class="mod-list-02" id="js-news">
 
-                <div class="__item">
-                    <div class="__img-box u-placeholder">
-                        <img lazyload="./images/pic/pic_03.jpg" alt=""/>
-                    </div>
-                    <div class="__main">
-                        <div class="__hd">中国足球队痛失好局客场1:1</div>
-                        <div class="__bd">中国足球队１５日晚在客场对印度尼西亚队的２０１５年亚洲杯预选赛中痛失好局，在率先取得进球和控制了场面的情况下被对手的一次反击将比分扳为１:１平，出线前景不容乐观。中国队在战平印尼后积４分暂居Ｃ组第二名，而同组少赛一场的沙特阿拉伯队和伊拉克队分别以６分和３分位居第一名和第三名，印尼队则以１分垫底。</div>
-                    </div>
-                </div>
-                <div class="__item">
-                    <div class="__img-box u-placeholder">
-                        <img lazyload="./images/pic/pic_03.jpg" alt=""/>
-                    </div>
-                    <div class="__main">
-                        <div class="__hd">中国足球队痛失好局客场1:1</div>
-                        <div class="__bd">中国足球队１５日晚在客场对印度尼西亚队的２０１５年亚洲杯预选赛中痛失好局，在率先取得进球和控制了场面的情况下被对手的一次反击将比分扳为１:１平，出线前景不容乐观。中国队在战平印尼后积４分暂居Ｃ组第二名，而同组少赛一场的沙特阿拉伯队和伊拉克队分别以６分和３分位居第一名和第三名，印尼队则以１分垫底。</div>
-                    </div>
-                </div>
-                <div class="__item">
-                    <div class="__img-box u-placeholder">
-                        <img lazyload="./images/pic/pic_03.jpg" alt=""/>
-                    </div>
-                    <div class="__main">
-                        <div class="__hd">中国足球队痛失好局客场1:1</div>
-                        <div class="__bd">中国足球队１５日晚在客场对印度尼西亚队的２０１５年亚洲杯预选赛中痛失好局，在率先取得进球和控制了场面的情况下被对手的一次反击将比分扳为１:１平，出线前景不容乐观。中国队在战平印尼后积４分暂居Ｃ组第二名，而同组少赛一场的沙特阿拉伯队和伊拉克队分别以６分和３分位居第一名和第三名，印尼队则以１分垫底。</div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -433,5 +95,81 @@
 
 
 <script type="text/javascript" data-main="./js/build/app/app" src="./js/lib/require.js"></script>
+<script type="text/html" id="tpl-menu-team">
+    <div id="js-menu-team" class="menu-team">
+        <a class="__btn" href="javascript:;">选择球队</a>
+        <div class="menu-team__box">
+            <div class="menu-team__list">
+                {{ each typeList }}
+                <div class="menu-team__list-item">
+                    {{ $value.name }}
+                    <div class="menu-team__sub-list">
+                        {{ each $value.list }}
+                        <div class="menu-team__sub-list-item">{{ $value.name }}</div>
+                        {{ /each }}
+                    </div>
+                </div>
+                {{ /each }}
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/html" id="tpl-news">
+    {{ each newsList }}
+    <div class="__item">
+        <div class="__img-box u-placeholder">
+            <img lazyload="{{ $value.img }}" alt=""/>
+        </div>
+        <div class="__main">
+            <div class="__hd">{{ $value.title }}</div>
+            <div class="__bd">{{ $value.content }}</div>
+        </div>
+    </div>
+    {{ /each }}
+</script>
+<script type="text/html" id="tpl-fans-post">
+    <div class="swipe-wrap">
+        {{ each postList }}
+        {{ if !($index%2) }}<div class="swipe-item">{{ /if }}
+            <div class="__item">
+                <div class="__img-box u-placeholder">
+                    <img lazyload="./images/pic/avatar.jpg" alt="avatar"/>
+                </div>
+                <div class="__main">
+                    <div class="__hd u-cf">
+                        <div class="__title">{{ $value.title }}</div>
+                        <div class="__info">{{ $value.teams }}</div>
+                    </div>
+                    <div class="__bd">{{ $value.content }}</div>
+                </div>
+            </div>
+        {{ if $index%2 }}</div>{{ /if }}
+        {{ /each }}
+    </div>
+</script>
+<script type="text/html" id="tpl-matches">
+    {{ each matches }}
+    <div class="__item">
+        <table>
+            <tr>
+                <td>
+                    <img src="{{ $value.icon1 }}" alt=""/>
+                </td>
+                <td>
+                    <div class="__time">{{ $value.time }}</div>
+                </td>
+                <td>
+                    <img src="{{ $value.icon2 }}" alt=""/>
+                </td>
+            </tr>
+            <tr>
+                <td>{{ $value.team[0] }}</td>
+                <td><span class="__date">{{ $value.date }}</span></td>
+                <td>{{ $value.team[1] }}</td>
+            </tr>
+        </table>
+    </div>
+    {{ /each }}
+</script>
 </body>
 </html>

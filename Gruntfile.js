@@ -52,7 +52,8 @@ module.exports = function(grunt){
             }
             ,app:{
                 files:{
-                    "css/style.css":"css/style.less"
+                    "css/app.css":"css/app.less",
+                    "css/app_ie.css":"css/app_ie.less"
                 }
             }
         }

@@ -7,17 +7,25 @@
 require.config({
     baseUrl: location.port === "3000" ? "./js/app/" : "./js/app/",
     paths: {
-        "$":(new RegExp(" AppleWebKit/")).test(navigator.userAgent) ? "../build/lib/zepto/zepto.min" : "../build/lib/jquery/jquery-1.11.1.min"
+        "$":(new RegExp(" AppleWebKit/")).test(navigator.userAgent) ? "../build/lib/zepto/zepto.min" : "../lib/jquery/jquery-1.11.1.min"
+        ,"template":"../build/artTemplate/template"
         ,"lazyload":"../build/lazyload/lazyload"
         ,"Swipe": "../build/swipe/swipe"
 
         ,"Base": "../build/base"
 
         ,"header": "../build/app/header/header"
+        ,"fansPost": "../build/app/fansPost/fansPost"
+        ,"news": "../build/app/news/news"
+        ,"menuTeam": "../build/app/menuTeam/menuTeam"
+        ,"matches": "../build/app/matches/matches"
     },
     shim: {
         "$": {
             exports: "$"
+        }
+        ,"template": {
+            exports: "template"
         }
         ,"lazyload": ["$"]
         ,"Swipe": {
@@ -28,14 +36,14 @@ require.config({
     }
 });
 //
-require(["Base","header","Swipe","lazyload"],function(Base,header,Swipe,lazyload){
+require(["Base","template","Swipe","lazyload"],function(Base,template,Swipe,lazyload){
     console.log('[app init]');
     var $ = Base.$;
     var u = Base.utils;
 
     Base.BASE_URL = location.port === "3000" ? "" : "./assets";
-    //init $wrapper
-    var $wrapper = $('.wrapper');
+
+    require(["header"]);
 
     //banner
     var $swipe = $('#js-swipe-banner')
@@ -69,32 +77,13 @@ require(["Base","header","Swipe","lazyload"],function(Base,header,Swipe,lazyload
         });
         $swipe__item.find('img').show();
     }
-
-    //post
-    var $swipePost = $('#js-swipe-fans-post')
-        ,$swipePost__item = $swipePost.find('.swipe-item');
-    if($swipePost__item.length > 1){
-        var swipePost = Swipe($swipePost[0],{
-            axis: 'y',
-            startSlide: 0,
-            speed: 1000,
-            auto: 3000,
-            continuous: true,
-            disableScroll: true,
-            stopPropagation: true,
-            callback: function(index, elem) {
-                console.log(1)
-            },
-            transitionEnd: function(index, elem) {}
-        });
-        $swipePost__item.show();
-    }
-
-    $('[lazyload]').lazyload(function(e){console.log(e)});
-
-    $('#js-menu-team').on('click', function(){
-        $(this).toggleClass('_active');
+    $('[lazyload]').lazyload(function(e){
+        //console.log(e);
     });
+
+
+    require(["news","fansPost","matches"]);
+    if(!$.os || !($.os.phone || $.os.tablet)) require(["menuTeam"]);
 
 });
 

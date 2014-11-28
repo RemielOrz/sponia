@@ -1,0 +1,19 @@
+<script type="text/html" id="tpl-menu-team">
+    <div id="js-menu-team" class="menu-team">
+        <a class="__btn" href="javascript:;">选择球队</a>
+        <div class="menu-team__box">
+            <div class="menu-team__list">
+                {{ each typeList }}
+                <div class="menu-team__list-item">
+                    {{ $value.name }}
+                    <div class="menu-team__sub-list">
+                        {{ each $value.list }}
+                        <div class="menu-team__sub-list-item">{{ $value.name }}</div>
+                        {{ /each }}
+                    </div>
+                </div>
+                {{ /each }}
+            </div>
+        </div>
+    </div>
+</script>

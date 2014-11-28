@@ -1,0 +1,5 @@
+/*!
+author: remiel <i@remiel.me> 
+date: 2014-11-28 
+*/
+define(["Base","template","Swipe"],function(a,b,c){console.log("[module: fansPost]");var d=a.$,e=(a.utils,{postList:[{title:"球迷拽拽哥",teams:"皇家马德里 vs 塞维利亚",content:"塞维利亚是c罗请来的演员么？"},{title:"球迷拽拽哥",teams:"皇家马德里 vs 塞维利亚",content:"塞维利亚是c罗请来的演员么？"},{title:"球迷拽拽哥",teams:"皇家马德里 vs 塞维利亚",content:"塞维利亚是c罗请来的演员么？"},{title:"球迷拽拽哥",teams:"皇家马德里 vs 塞维利亚",content:"塞维利亚是c罗请来的演员么？"},{title:"球迷拽拽哥",teams:"皇家马德里 vs 塞维利亚",content:"塞维利亚是c罗请来的演员么？"},{title:"球迷拽拽哥",teams:"皇家马德里 vs 塞维利亚",content:"塞维利亚是c罗请来的演员么？"}]}),f=b("tpl-fans-post",e),g=d("#js-swipe-fans-post");g.html(f).find("[lazyload]").lazyload();var h=g.find(".swipe-item");if(h.length>1){{c(g[0],{axis:"y",startSlide:0,speed:1e3,auto:3e3,continuous:!0,disableScroll:!0,stopPropagation:!0,callback:function(){},transitionEnd:function(){}})}h.show()}});

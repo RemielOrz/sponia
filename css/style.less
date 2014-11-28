@@ -3,8 +3,6 @@
  * Date: 14/11/27
  * Time: 下午12:56
  */
-@import "./lib/base_font_size";
-@import "./lib/base_var";
 @import "./lib/mixins";
 
 @img_base_url: "../images";//图片路径
@@ -479,6 +477,7 @@ html{ background:#262626;}
 
 /*mobi*/
 @media screen and (max-width: 640px) {
+    .inner{ width:auto;}
     .logo{
         width:126/@px;
         left:0; right:0;

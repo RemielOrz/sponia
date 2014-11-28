@@ -44,6 +44,6 @@ define(['$'],function($){
         utils: utils,
         ui:{},
         $:$,
-        BASE_URL: location.port === "3000" ? "" : ""
+        BASE_URL: location.port === "3000" ? "./" : "./"
     }
 });
