@@ -20,7 +20,7 @@ module.exports = function(grunt){
                     expand: true,
                     cwd: 'js/module/',
                     src: '**/*.js',
-                    dest: 'js/dest/'//,
+                    dest: 'js/build/'//,
                     //ext: '.min.js'
                 }]
             }
@@ -29,7 +29,7 @@ module.exports = function(grunt){
                     expand: true,
                     cwd: 'js/lib/',
                     src: '**/*.js',
-                    dest: 'js/dest/lib'
+                    dest: 'js/build/lib'
                     ,ext: '.min.js'
                 }]
             }
@@ -37,8 +37,8 @@ module.exports = function(grunt){
         ,
         less: {
             options: {
-                compress: true,//false,
-                yuicompress: true,//false,
+                compress: false,//false,
+                yuicompress: false,//false,
                 optimization: 2
             }
             ,app:{

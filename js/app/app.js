@@ -8,6 +8,7 @@ require.config({
     baseUrl: location.port === "3000" ? "./js/app/" : "./js/app/",
     paths: {
         "$":(new RegExp(" AppleWebKit/")).test(navigator.userAgent) ? "../lib/zepto/zepto.min" : "../lib/jquery/jquery-1.11.1.min"
+        ,"lazyload":"../module/lazyload/lazyload"
         ,"Swipe": "../module/swipe/swipe"
 
         ,"Base": "../module/base"
@@ -18,6 +19,7 @@ require.config({
         "$": {
             exports: "$"
         }
+        ,"lazyload": ["$"]
         ,"Swipe": {
             deps: ["$"],
             exports: "Swipe"
@@ -26,7 +28,7 @@ require.config({
     }
 });
 //
-require(["Base","header","Swipe"],function(Base,header,Swipe){
+require(["Base","header","Swipe","lazyload"],function(Base,header,Swipe,lazyload){
     console.log('[app init]');
     var $ = Base.$;
     var u = Base.utils;
@@ -35,7 +37,7 @@ require(["Base","header","Swipe"],function(Base,header,Swipe){
     //init $wrapper
     var $wrapper = $('.wrapper');
 
-    var $swipe = $('#js-swipe')
+    var $swipe = $('#js-swipe-banner')
         ,$swipe__item = $swipe.find('.swipe-item')
         ,swipeLength = $swipe__item.length
         ,$swipe__dotBox = $('<div>').addClass('swipe-dot-box')
@@ -56,15 +58,18 @@ require(["Base","header","Swipe"],function(Base,header,Swipe){
             continuous: true,
             disableScroll: false,
             stopPropagation: false,
-            callback: function(index, elem) {},
-            transitionEnd: function(index, elem) {
+            callback: function(index, elem) {
                 $swipe__dot
                     .removeClass(activeClass)
                     .eq(index)
                     .addClass(activeClass);
-            }
+            },
+            transitionEnd: function(index, elem) {}
         });
+        $swipe__item.find('img').show();
     }
+
+    $('[lazyload]').lazyload(function(e){console.log(e)});
 
 });
 

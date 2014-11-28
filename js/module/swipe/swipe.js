@@ -29,11 +29,12 @@ function Swipe(container, options) {
   // quit if no root element
   if (!container) return;
   var element = container.children[0];
-  var slides, slidePos, width, length;
+  var slides, slidePos, width, height, length;
   options = options || {};
   var index = parseInt(options.startSlide, 10) || 0;
   var speed = options.speed || 300;
   options.continuous = options.continuous !== undefined ? options.continuous : true;
+  if(options.axis == 'y') container.className += ' swipe-y';
 
   function setup() {
 
@@ -55,33 +56,57 @@ function Swipe(container, options) {
     slidePos = new Array(slides.length);
 
     // determine width of each slide
+    height = container.getBoundingClientRect().height || container.offsetHeight;
     width = container.getBoundingClientRect().width || container.offsetWidth;
 
-    element.style.width = (slides.length * width) + 'px';
-
+    if(options.axis == 'y'){
+      element.style.height = (slides.length * height) + 'px';
+    }else{
+      element.style.width = (slides.length * width) + 'px';
+    }
     // stack elements
     var pos = slides.length;
     while(pos--) {
 
       var slide = slides[pos];
 
-      slide.style.width = width + 'px';
+      if(options.axis == 'y'){
+        slide.style.height = height + 'px';
+      }else{
+        slide.style.width = width + 'px';
+      }
       slide.setAttribute('data-index', pos);
 
       if (browser.transitions) {
-        slide.style.left = (pos * -width) + 'px';
-        move(pos, index > pos ? -width : (index < pos ? width : 0), 0);
+        if(options.axis == 'y') {
+          slide.style.top = (pos * -height) + 'px';
+          move(pos, index > pos ? -height : (index < pos ? height : 0), 0);
+        }else{
+          slide.style.left = (pos * -width) + 'px';
+          move(pos, index > pos ? -width : (index < pos ? width : 0), 0);
+        }
       }
 
     }
 
     // reposition elements before and after index
     if (options.continuous && browser.transitions) {
-      move(circle(index-1), -width, 0);
-      move(circle(index+1), width, 0);
+      if(options.axis == 'y') {
+        move(circle(index-1), -height, 0);
+        move(circle(index+1), height, 0);
+      }else{
+        move(circle(index-1), -width, 0);
+        move(circle(index+1), width, 0);
+      }
     }
 
-    if (!browser.transitions) element.style.left = (index * -width) + 'px';
+    if (!browser.transitions){
+      if(options.axis == 'y') {
+        element.style.top = (index * -height) + 'px';
+      }else{
+        element.style.left = (index * -width) + 'px';
+      }
+    }
 
     container.style.visibility = 'visible';
 
@@ -120,7 +145,11 @@ function Swipe(container, options) {
       // get the actual position of the slide
       if (options.continuous) {
         var natural_direction = direction;
-        direction = -slidePos[circle(to)] / width;
+        if(options.axis == 'y') {
+          direction = -slidePos[circle(to)] / height;
+        }else{
+          direction = -slidePos[circle(to)] / width;
+        }
 
         // if going forward but to < index, use to = slides.length + to
         // if going backward but to > index, use to = -slides.length + to
@@ -131,19 +160,35 @@ function Swipe(container, options) {
       var diff = Math.abs(index-to) - 1;
 
       // move all the slides between index and to in the right direction
-      while (diff--) move( circle((to > index ? to : index) - diff - 1), width * direction, 0);
+      if(options.axis == 'y') {
+        while (diff--) move( circle((to > index ? to : index) - diff - 1), height * direction, 0);
+      }else{
+        while (diff--) move( circle((to > index ? to : index) - diff - 1), width * direction, 0);
+      }
 
       to = circle(to);
-
-      move(index, width * direction, slideSpeed || speed);
+      if(options.axis == 'y') {
+        move(index, height * direction, slideSpeed || speed);
+      }else{
+        move(index, width * direction, slideSpeed || speed);
+      }
       move(to, 0, slideSpeed || speed);
-
-      if (options.continuous) move(circle(to - direction), -(width * direction), 0); // we need to get the next in place
+      if (options.continuous){
+        if(options.axis == 'y') {
+          move(circle(to - direction), -(height * direction), 0); // we need to get the next in place
+        }else{
+          move(circle(to - direction), -(width * direction), 0); // we need to get the next in place
+        }
+      }
 
     } else {
 
       to = circle(to);
-      animate(index * -width, to * -width, slideSpeed || speed);
+      if(options.axis == 'y') {
+        animate(index * -height, to * -height, slideSpeed || speed);
+      }else{
+        animate(index * -width, to * -width, slideSpeed || speed);
+      }
       //no fallback for a circular continuous if the browser does not accept transitions
     }
 
@@ -165,16 +210,29 @@ function Swipe(container, options) {
 
     if (!style) return;
 
-    style.webkitTransitionDuration =
-    style.MozTransitionDuration =
-    style.msTransitionDuration =
-    style.OTransitionDuration =
-    style.transitionDuration = speed + 'ms';
+    if(options.axis == 'y') {
+      style.webkitTransitionDuration =
+          style.MozTransitionDuration =
+              style.msTransitionDuration =
+                  style.OTransitionDuration =
+                      style.transitionDuration = speed + 'ms';
 
-    style.webkitTransform = 'translate(' + dist + 'px,0)' + 'translateZ(0)';
-    style.msTransform =
-    style.MozTransform =
-    style.OTransform = 'translateX(' + dist + 'px)';
+      style.webkitTransform = 'translate(0,' + dist + 'px)' + 'translateZ(0)';
+      style.msTransform =
+          style.MozTransform =
+              style.OTransform = 'translateY(' + dist + 'px)';
+    }else{
+      style.webkitTransitionDuration =
+          style.MozTransitionDuration =
+              style.msTransitionDuration =
+                  style.OTransitionDuration =
+                      style.transitionDuration = speed + 'ms';
+
+      style.webkitTransform = 'translate(' + dist + 'px,0)' + 'translateZ(0)';
+      style.msTransform =
+          style.MozTransform =
+              style.OTransform = 'translateX(' + dist + 'px)';
+    }
 
   }
 
@@ -183,7 +241,11 @@ function Swipe(container, options) {
     // if not an animation, just reposition
     if (!speed) {
 
-      element.style.left = to + 'px';
+      if(options.axis == 'y') {
+        element.style.top = to + 'px';
+      }else{
+        element.style.left = to + 'px';
+      }
       return;
 
     }
@@ -195,8 +257,11 @@ function Swipe(container, options) {
       var timeElap = +new Date - start;
 
       if (timeElap > speed) {
-
-        element.style.left = to + 'px';
+        if(options.axis == 'y') {
+          element.style.top = to + 'px';
+        }else{
+          element.style.left = to + 'px';
+        }
 
         if (delay) begin();
 
@@ -206,8 +271,11 @@ function Swipe(container, options) {
         return;
 
       }
-
-      element.style.left = (( (to - from) * (Math.floor((timeElap / speed) * 100) / 100) ) + from) + 'px';
+      if(options.axis == 'y') {
+        element.style.top = (( (to - from) * (Math.floor((timeElap / speed) * 100) / 100) ) + from) + 'px';
+      }else{
+        element.style.left = (( (to - from) * (Math.floor((timeElap / speed) * 100) / 100) ) + from) + 'px';
+      }
 
     }, 4);
 
@@ -300,7 +368,11 @@ function Swipe(container, options) {
 
       // determine if scrolling test has run - one time test
       if ( typeof isScrolling == 'undefined') {
-        isScrolling = !!( isScrolling || Math.abs(delta.x) < Math.abs(delta.y) );
+        if(options.axis == 'y') {
+          isScrolling = !!( isScrolling || Math.abs(delta.x) >= Math.abs(delta.y) );
+        }else{
+          isScrolling = !!( isScrolling || Math.abs(delta.x) < Math.abs(delta.y) );
+        }
       }
 
       // if user is not trying to scroll vertically
@@ -314,26 +386,48 @@ function Swipe(container, options) {
 
         // increase resistance if first or last slide
         if (options.continuous) { // we don't add resistance at the end
-
-          translate(circle(index-1), delta.x + slidePos[circle(index-1)], 0);
-          translate(index, delta.x + slidePos[index], 0);
-          translate(circle(index+1), delta.x + slidePos[circle(index+1)], 0);
+          if(options.axis == 'y') {
+            translate(circle(index-1), delta.y + slidePos[circle(index-1)], 0);
+            translate(index, delta.y + slidePos[index], 0);
+            translate(circle(index+1), delta.y + slidePos[circle(index+1)], 0);
+          }else{
+            translate(circle(index-1), delta.x + slidePos[circle(index-1)], 0);
+            translate(index, delta.x + slidePos[index], 0);
+            translate(circle(index+1), delta.x + slidePos[circle(index+1)], 0);
+          }
 
         } else {
 
-          delta.x =
-            delta.x /
-              ( (!index && delta.x > 0               // if first slide and sliding left
+          if(options.axis == 'y') {
+            delta.y =
+                delta.y /
+                ( (!index && delta.y > 0               // if first slide and sliding left
+                || index == slides.length - 1        // or if last slide and sliding right
+                && delta.y < 0                       // and if sliding at all
+                ) ?
+                    ( Math.abs(delta.y) / height + 1 )      // determine resistance level
+                    : 1 );                                 // no resistance if false
+          }else{
+            delta.x =
+                delta.x /
+                ( (!index && delta.x > 0               // if first slide and sliding left
                 || index == slides.length - 1        // or if last slide and sliding right
                 && delta.x < 0                       // and if sliding at all
-              ) ?
-              ( Math.abs(delta.x) / width + 1 )      // determine resistance level
-              : 1 );                                 // no resistance if false
+                ) ?
+                    ( Math.abs(delta.x) / width + 1 )      // determine resistance level
+                    : 1 );                                 // no resistance if false
+          }
 
           // translate 1:1
-          translate(index-1, delta.x + slidePos[index-1], 0);
-          translate(index, delta.x + slidePos[index], 0);
-          translate(index+1, delta.x + slidePos[index+1], 0);
+          if(options.axis == 'y') {
+            translate(index-1, delta.y + slidePos[index-1], 0);
+            translate(index, delta.y + slidePos[index], 0);
+            translate(index+1, delta.y + slidePos[index+1], 0);
+          }else{
+            translate(index-1, delta.x + slidePos[index-1], 0);
+            translate(index, delta.x + slidePos[index], 0);
+            translate(index+1, delta.x + slidePos[index+1], 0);
+          }
         }
 
       }
@@ -343,79 +437,155 @@ function Swipe(container, options) {
 
       // measure duration
       var duration = +new Date - start.time;
+      var isValidSlide,isPastBounds,direction;
+      if(options.axis == 'y') {
+        // determine if slide attempt triggers next/prev slide
+        isValidSlide =
+            Number(duration) < 250               // if slide duration is less than 250ms
+            && Math.abs(delta.y) > 20            // and if slide amt is greater than 20px
+            || Math.abs(delta.y) > width/2;      // or if slide amt is greater than half the width
 
-      // determine if slide attempt triggers next/prev slide
-      var isValidSlide =
+        // determine if slide attempt is past start and end
+        isPastBounds =
+            !index && delta.y > 0                            // if first slide and slide amt is greater than 0
+            || index == slides.length - 1 && delta.y < 0;    // or if last slide and slide amt is less than 0
+
+        if (options.continuous) isPastBounds = false;
+
+        // determine direction of swipe (true:right, false:left)
+        direction = delta.y < 0;
+
+        // if not scrolling vertically
+        if (!isScrolling) {
+
+          if (isValidSlide && !isPastBounds) {
+
+            if (direction) {
+
+              if (options.continuous) { // we need to get the next in this direction in place
+
+                move(circle(index-1), -height, 0);
+                move(circle(index+2), height, 0);
+
+              } else {
+                move(index-1, -height, 0);
+              }
+
+              move(index, slidePos[index]-height, speed);
+              move(circle(index+1), slidePos[circle(index+1)]-height, speed);
+              index = circle(index+1);
+
+            } else {
+              if (options.continuous) { // we need to get the next in this direction in place
+
+                move(circle(index+1), height, 0);
+                move(circle(index-2), -height, 0);
+
+              } else {
+                move(index+1, height, 0);
+              }
+
+              move(index, slidePos[index]+height, speed);
+              move(circle(index-1), slidePos[circle(index-1)]+height, speed);
+              index = circle(index-1);
+
+            }
+
+            options.callback && options.callback(index, slides[index]);
+
+          } else {
+
+            if (options.continuous) {
+
+              move(circle(index-1), -height, speed);
+              move(index, 0, speed);
+              move(circle(index+1), height, speed);
+
+            } else {
+
+              move(index-1, -height, speed);
+              move(index, 0, speed);
+              move(index+1, height, speed);
+            }
+
+          }
+
+        }
+      }else{
+        // determine if slide attempt triggers next/prev slide
+        isValidSlide =
             Number(duration) < 250               // if slide duration is less than 250ms
             && Math.abs(delta.x) > 20            // and if slide amt is greater than 20px
             || Math.abs(delta.x) > width/2;      // or if slide amt is greater than half the width
 
-      // determine if slide attempt is past start and end
-      var isPastBounds =
+        // determine if slide attempt is past start and end
+        isPastBounds =
             !index && delta.x > 0                            // if first slide and slide amt is greater than 0
             || index == slides.length - 1 && delta.x < 0;    // or if last slide and slide amt is less than 0
 
-      if (options.continuous) isPastBounds = false;
+        if (options.continuous) isPastBounds = false;
 
-      // determine direction of swipe (true:right, false:left)
-      var direction = delta.x < 0;
+        // determine direction of swipe (true:right, false:left)
+        direction = delta.x < 0;
 
-      // if not scrolling vertically
-      if (!isScrolling) {
+        // if not scrolling vertically
+        if (!isScrolling) {
 
-        if (isValidSlide && !isPastBounds) {
+          if (isValidSlide && !isPastBounds) {
 
-          if (direction) {
+            if (direction) {
 
-            if (options.continuous) { // we need to get the next in this direction in place
+              if (options.continuous) { // we need to get the next in this direction in place
 
-              move(circle(index-1), -width, 0);
-              move(circle(index+2), width, 0);
+                move(circle(index-1), -width, 0);
+                move(circle(index+2), width, 0);
 
-            } else {
-              move(index-1, -width, 0);
-            }
+              } else {
+                move(index-1, -width, 0);
+              }
 
-            move(index, slidePos[index]-width, speed);
-            move(circle(index+1), slidePos[circle(index+1)]-width, speed);
-            index = circle(index+1);
-
-          } else {
-            if (options.continuous) { // we need to get the next in this direction in place
-
-              move(circle(index+1), width, 0);
-              move(circle(index-2), -width, 0);
+              move(index, slidePos[index]-width, speed);
+              move(circle(index+1), slidePos[circle(index+1)]-width, speed);
+              index = circle(index+1);
 
             } else {
-              move(index+1, width, 0);
+              if (options.continuous) { // we need to get the next in this direction in place
+
+                move(circle(index+1), width, 0);
+                move(circle(index-2), -width, 0);
+
+              } else {
+                move(index+1, width, 0);
+              }
+
+              move(index, slidePos[index]+width, speed);
+              move(circle(index-1), slidePos[circle(index-1)]+width, speed);
+              index = circle(index-1);
+
             }
 
-            move(index, slidePos[index]+width, speed);
-            move(circle(index-1), slidePos[circle(index-1)]+width, speed);
-            index = circle(index-1);
-
-          }
-
-          options.callback && options.callback(index, slides[index]);
-
-        } else {
-
-          if (options.continuous) {
-
-            move(circle(index-1), -width, speed);
-            move(index, 0, speed);
-            move(circle(index+1), width, speed);
+            options.callback && options.callback(index, slides[index]);
 
           } else {
 
-            move(index-1, -width, speed);
-            move(index, 0, speed);
-            move(index+1, width, speed);
+            if (options.continuous) {
+
+              move(circle(index-1), -width, speed);
+              move(index, 0, speed);
+              move(circle(index+1), width, speed);
+
+            } else {
+
+              move(index-1, -width, speed);
+              move(index, 0, speed);
+              move(index+1, width, speed);
+            }
+
           }
 
         }
 
-      }
+      }//else end;;;
 
       // kill touchmove and touchend event listeners until touchstart called again
       element.removeEventListener('touchmove', events, false)
@@ -523,16 +693,26 @@ function Swipe(container, options) {
       stop();
 
       // reset element
-      element.style.width = '';
-      element.style.left = '';
+      if(options.axis == 'y') {
+        element.style.height = '';
+        element.style.top = '';
 
+      }else{
+        element.style.width = '';
+        element.style.left = '';
+      }
       // reset slides
       var pos = slides.length;
       while(pos--) {
 
         var slide = slides[pos];
-        slide.style.width = '';
-        slide.style.left = '';
+        if(options.axis == 'y') {
+          slide.style.height = '';
+          slide.style.top = '';
+        }else{
+          slide.style.width = '';
+          slide.style.left = '';
+        }
 
         if (browser.transitions) translate(pos, 0, 0);
 
