@@ -37,6 +37,7 @@ require(["Base","header","Swipe","lazyload"],function(Base,header,Swipe,lazyload
     //init $wrapper
     var $wrapper = $('.wrapper');
 
+    //banner
     var $swipe = $('#js-swipe-banner')
         ,$swipe__item = $swipe.find('.swipe-item')
         ,swipeLength = $swipe__item.length
@@ -67,6 +68,26 @@ require(["Base","header","Swipe","lazyload"],function(Base,header,Swipe,lazyload
             transitionEnd: function(index, elem) {}
         });
         $swipe__item.find('img').show();
+    }
+
+    //post
+    var $swipePost = $('#js-swipe-fans-post')
+        ,$swipePost__item = $swipePost.find('.swipe-item');
+    if($swipePost__item.length > 1){
+        var swipePost = Swipe($swipePost[0],{
+            axis: 'y',
+            startSlide: 0,
+            speed: 1000,
+            auto: 3000,
+            continuous: true,
+            disableScroll: true,
+            stopPropagation: true,
+            callback: function(index, elem) {
+                console.log(1)
+            },
+            transitionEnd: function(index, elem) {}
+        });
+        $swipePost__item.show();
     }
 
     $('[lazyload]').lazyload(function(e){console.log(e)});
