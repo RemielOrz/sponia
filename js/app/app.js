@@ -7,13 +7,13 @@
 require.config({
     baseUrl: location.port === "3000" ? "./js/app/" : "./js/app/",
     paths: {
-        "$":(new RegExp(" AppleWebKit/")).test(navigator.userAgent) ? "../lib/zepto/zepto.min" : "../lib/jquery/jquery-1.11.1.min"
-        ,"lazyload":"../module/lazyload/lazyload"
-        ,"Swipe": "../module/swipe/swipe"
+        "$":(new RegExp(" AppleWebKit/")).test(navigator.userAgent) ? "../build/lib/zepto/zepto.min" : "../build/lib/jquery/jquery-1.11.1.min"
+        ,"lazyload":"../build/lazyload/lazyload"
+        ,"Swipe": "../build/swipe/swipe"
 
-        ,"Base": "../module/base"
+        ,"Base": "../build/base"
 
-        ,"header": "../module/app/header/header"
+        ,"header": "../build/app/header/header"
     },
     shim: {
         "$": {
@@ -91,6 +91,10 @@ require(["Base","header","Swipe","lazyload"],function(Base,header,Swipe,lazyload
     }
 
     $('[lazyload]').lazyload(function(e){console.log(e)});
+
+    $('#js-menu-team').on('click', function(){
+        $(this).toggleClass('_active');
+    });
 
 });
 

@@ -15,6 +15,15 @@ module.exports = function(grunt){
                 mangle: true,
                 banner: '/*!\nauthor: <%= pkg.author %> \ndate: <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
             },
+            app:{
+                files:[{
+                    expand: true,
+                    cwd: 'js/app/',
+                    src: '**/*.js',
+                    dest: 'js/build/app/'//,
+                    //ext: '.min.js'
+                }]
+            },
             module:{
                 files:[{
                     expand: true,
@@ -53,7 +62,7 @@ module.exports = function(grunt){
                     baseUrl: "js/",
                     paths: {
                         "$":"./lib/zepto.min",
-                        //"lazyload":"./module/lazyload/zepto.lazyload",
+                        "lazyload":"./module/lazyload/zepto.lazyload",
                         "Base": "./module/base"
                     },
                     shim: {
