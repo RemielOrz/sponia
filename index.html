@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>赛点 Sponia</title>
+    <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=no"/>
+    <link rel='stylesheet' href='./css/app.css' />
+    <!--[if lt IE 9]>
+    <link rel='stylesheet' href='./css/app_ie.css' />
+    <![endif]-->
+</head>
+<body>
+<div class="wrapper">
+    <!--header-->
+    <div class="header">
+        <div class="inner">
+            <i class="logo"></i>
+            <i class="icon icon-nav"></i>
+            <div class="nav">
+                <a class="nav__item _active" href="#">首页</a>
+                <a class="nav__item" href="#">数据</a>
+                <a class="nav__item" href="#">咨询</a>
+                <a class="nav__item" href="#">社区</a>
+            </div>
+            <div class="search">
+                <label class="icon icon-search" for="search__ipt"></label>
+                <input id="search__ipt" class="search__ipt" type="text"/>
+            </div>
+        </div>
+    </div>
+    <!--header end-->
+    <!--body-->
+    <div class="body">
+        <div class="inner">
+            <!--banner swipe-->
+            <div class="swipe-outer banner">
+                <div id='js-swipe-banner' class='swipe'>
+                    <div class='swipe-wrap'>
+                        <div class="swipe-item u-placeholder">
+                            <img src="./images/placeholder/placeholder_banner.png" lazyload="./images/pic/pic_01.jpg" alt=""/>
+                        </div>
+                        <div class="swipe-item u-placeholder">
+                            <img src="./images/placeholder/placeholder_banner.png" lazyload="./images/pic/pic_02.jpg" alt=""/>
+                        </div>
+                        <div class="swipe-item u-placeholder">
+                            <img src="./images/placeholder/placeholder_banner.png" lazyload="./images/pic/pic_01.jpg" alt=""/>
+                        </div>
+                        <div class="swipe-item u-placeholder">
+                            <img src="./images/placeholder/placeholder_banner.png" lazyload="./images/pic/pic_02.jpg" alt=""/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--banner swipe end-->
+            <!---->
+            <div id="js-recent-match" class="recent-match">
+                <div class="mod-header-01">
+                    最新赛程
+                    <a class="more" href="#"></a>
+                </div>
+
+                <div class="mod-list-03">
+
+                </div>
+            </div>
+            <!---->
+            <div class="mod-header-01">球迷互动</div>
+            <div class="swipe-outer mod-list-01 fans-post">
+                <div id="js-swipe-fans-post" class="swipe">
+
+                </div>
+            </div>
+            <!---->
+            <div class="mod-header-01">
+                球坛动态
+                <a class="more" href="#"></a>
+            </div>
+            <div class="mod-list-02" id="js-news">
+
+            </div>
+        </div>
+    </div>
+    <!--body end-->
+    <!--footer-->
+    <div class="footer">
+        <div class="inner">
+            <div class="footer__content">Sponia © 2013</div>
+        </div>
+    </div>
+    <!--footer end-->
+</div>
+
+
+<script type="text/javascript" data-main="./js/build/app/app" src="./js/lib/require.js"></script>
+<script type="text/html" id="tpl-menu-team">
+    <div id="js-menu-team" class="menu-team">
+        <a class="__btn" href="javascript:;">选择球队</a>
+        <div class="menu-team__box">
+            <div class="menu-team__list">
+                {{ each typeList }}
+                <div class="menu-team__list-item">
+                    {{ $value.name }}
+                    <div class="menu-team__sub-list">
+                        {{ each $value.list }}
+                        <div class="menu-team__sub-list-item">{{ $value.name }}</div>
+                        {{ /each }}
+                    </div>
+                </div>
+                {{ /each }}
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/html" id="tpl-news">
+    {{ each newsList }}
+    <div class="__item">
+        <div class="__img-box u-placeholder">
+            <img lazyload="{{ $value.img }}" alt=""/>
+        </div>
+        <div class="__main">
+            <div class="__hd">{{ $value.title }}</div>
+            <div class="__bd">{{ $value.content }}</div>
+        </div>
+    </div>
+    {{ /each }}
+</script>
+<script type="text/html" id="tpl-fans-post">
+    <div class="swipe-wrap">
+        {{ each postList }}
+        {{ if !($index%2) }}<div class="swipe-item">{{ /if }}
+            <div class="__item">
+                <div class="__img-box u-placeholder">
+                    <img lazyload="./images/pic/avatar.jpg" alt="avatar"/>
+                </div>
+                <div class="__main">
+                    <div class="__hd u-cf">
+                        <div class="__title">{{ $value.title }}</div>
+                        <div class="__info">{{ $value.teams }}</div>
+                    </div>
+                    <div class="__bd">{{ $value.content }}</div>
+                </div>
+            </div>
+        {{ if $index%2 }}</div>{{ /if }}
+        {{ /each }}
+    </div>
+</script>
+<script type="text/html" id="tpl-matches">
+    {{ each matches }}
+    <div class="__item">
+        <table>
+            <tr>
+                <td>
+                    <img src="{{ $value.icon1 }}" alt=""/>
+                </td>
+                <td>
+                    <div class="__time">{{ $value.time }}</div>
+                </td>
+                <td>
+                    <img src="{{ $value.icon2 }}" alt=""/>
+                </td>
+            </tr>
+            <tr>
+                <td>{{ $value.team[0] }}</td>
+                <td><span class="__date">{{ $value.date }}</span></td>
+                <td>{{ $value.team[1] }}</td>
+            </tr>
+        </table>
+    </div>
+    {{ /each }}
+</script>
+</body>
+</html>

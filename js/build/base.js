@@ -1,0 +1,5 @@
+/*!
+author: remiel <i@remiel.me> 
+date: 2014-11-28 
+*/
+define(["$"],function(a){console.log("module:Base");var b={};return b.support={touch:"ontouchend"in document},b.events=b.support.touch?{down:"touchstart",move:"touchmove",up:"touchend",click:"tap"}:{down:"mousedown",move:"mousemove",up:"mouseup",click:"click"},a.os&&(a.os.phone||a.os.tablet)||(b.events.click="click"),b.getProperty=function(a){for(var b=["Webkit","Moz","O","ms",""],c=document.createElement("div").style,d=0;d<b.length;++d)if(void 0!==c[b[d]+a])return b[d]+a},a.extend(b.support,{transform:!!b.getProperty("Transform"),transform3d:!!(window.WebKitCSSMatrix&&"m11"in new WebKitCSSMatrix)}),b.renderTpl=function(a,b){return a.replace(/{(.*?)}/gim,function(a,c){return"undefined"!=typeof b[c]?b[c]:""})},{utils:b,ui:{},$:a,BASE_URL:"3000"===location.port?"./":"./"}});
